@@ -144,25 +144,25 @@ config HW_PSX_ENA
 config HW_PSX_CLK
 	int "PSX controller CLK GPIO pin"
 	depends on HW_PSX_ENA
-	range 1 35
+	range 0 30
 	default 14
 
 config HW_PSX_DAT
 	int "PSX controller DATa GPIO pin"
 	depends on HW_PSX_ENA
-	range 1 35
+	range 0 40
 	default 27
 
 config HW_PSX_ATT
 	int "PSX controller ATTention GPIO pin"
 	depends on HW_PSX_ENA
-	range 1 35
+	range 0 30
 	default 4
 
 config HW_PSX_CMD
 	int "PSX controller CoMmanD GPIO pin"
 	depends on HW_PSX_ENA
-	range 1 35
+	range 0 30
 	default 2
 
 endmenu
