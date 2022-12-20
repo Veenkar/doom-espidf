@@ -1,3 +1,10 @@
 **/build
 sdkconfig.old
 debug.log
+
+# IDE
+**.code-workspace
+settings.json
+
+# ESP
+sdkconfig.old
