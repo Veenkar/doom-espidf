@@ -464,6 +464,7 @@ void IRAM_ATTR updateTask(void *arg)
 
 void I_InitSound(void)
 {
+  #if 0
   mixbuffer = malloc(MIXBUFFERSIZE*sizeof(unsigned char));
 
   static const i2s_config_t i2s_config = {
@@ -534,7 +535,7 @@ void I_InitSound(void)
   lprintf(LO_INFO, "I_InitSound: sound module ready\n");
 
   xTaskCreatePinnedToCore(&updateTask, "updateTask", 1000, NULL, 6, NULL, 1);
-  
+  #endif
 }
 
 
