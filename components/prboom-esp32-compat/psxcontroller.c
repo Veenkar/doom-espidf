@@ -66,7 +66,15 @@ static int psxSendRecv(int send) {
 		GPIO.out_w1ts=(1<<PSX_CLK);
 		ret>>=1;
 		send>>=1;
-		if (GPIO.in&(1<<PSX_DAT)) ret|=128;
+
+		if (gpio_get_level(PSX_DAT))
+		{
+			ret|=128;
+		}
+		else
+		{
+			/* nothing */
+		}
 	}
 	return ret;
 }
@@ -111,7 +119,8 @@ void psxcontrollerInit() {
 		}
 	};
 	gpio_config(&gpioconf[0]);
-	gpio_config(&gpioconf[1]);
+	gpio_set_direction(PSX_DAT, GPIO_MODE_INPUT);
+	// gpio_config(&gpioconf[1]);
 
 	// PIN_PULLUP_EN(PERIPHS_IO_MUX_GPIO27_U);
 	//Send a few dummy bytes to clean the pipes.
